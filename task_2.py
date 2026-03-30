@@ -20,7 +20,7 @@ def main():
 
         print(f"Загрузка CPU: {cpu}%")
         print(f"Использованная оперативная память: {memory}%")
-        print(f"Загруженность диска (раздел '/'): {disk}%")
+        print(f"Загруженность диска: {disk}%")
         print("-" * 40)
         time.sleep(1)
 
