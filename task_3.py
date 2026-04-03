@@ -1,6 +1,5 @@
 import requests
 import json
-import os
 
 URL = "https://www.cbr-xml-daily.ru/daily_json.js"
 FILE = "save.json"
@@ -24,10 +23,11 @@ def one_value():
         print("Нет такой валюты.")
 
 def load_groups():
-    if os.path.exists(FILE):
+    try:
         with open(FILE, 'r') as f:
             return json.load(f)
-    return {}
+    except FileNotFoundError:
+        return {}
 
 def save_groups(groups):
     with open(FILE, 'w') as f:
@@ -57,9 +57,13 @@ def edit_group():
     if action == 'add':
         groups[name].append(code)
     elif action == 'remove':
-        groups[name].remove(code)
+        if code in groups[name]:
+            groups[name].remove(code)
+        else:
+            print("Код не найден в группе.")
     save_groups(groups)
     print("Обновлено.")
+
 
 while True:
     print("\n1. Все валюты")
