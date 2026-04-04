@@ -52,7 +52,7 @@ def edit_group():
     if name not in groups:
         print("Нет такой группы.")
         return
-    action = input("Добавить или убрать? (add/remove): ").lower()
+    action = input("Добавить или убрать: ").lower()
     code = input("Код валюты: ").upper()
     if action == 'add':
         groups[name].append(code)
