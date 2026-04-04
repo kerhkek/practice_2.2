@@ -54,9 +54,9 @@ def edit_group():
         return
     action = input("Добавить или убрать: ").lower()
     code = input("Код валюты: ").upper()
-    if action == 'add':
+    if action == 'добавить':
         groups[name].append(code)
-    elif action == 'remove':
+    elif action == 'убрать':
         if code in groups[name]:
             groups[name].remove(code)
         else:
